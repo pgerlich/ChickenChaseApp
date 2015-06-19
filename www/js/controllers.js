@@ -8,6 +8,7 @@ angular.module('starter.controllers', [])
 
 // Map Controller
 .controller('MapCtrl', function($scope) {
+	var userMarkerShown = false;
 	// Create a map in the #map div
 	var map = L.map('map',
 		{ zoomControl:false } // Zoom controls not needed for mobile
@@ -16,15 +17,15 @@ angular.module('starter.controllers', [])
 	// Locate library used to get user's location
 	map.locate({setView: true, watch: true}) /* This will return map so you can do chaining */
 	.on('locationfound', function(e){
-		var marker = L.marker([e.latitude, e.longitude]).bindPopup('You are <b>alive</b>!');
-		var circle = L.circle([e.latitude, e.longitude], e.accuracy/2, {
-			weight: 1,
-			color: 'blue',
-			fillColor: '#cacaca',
-			fillOpacity: 0.2
-		});
-		map.addLayer(marker);
-		map.addLayer(circle);
+		if (userMarkerShown == true) {
+			map.removeLayer(userMarker);
+			userMarkerShown = false;
+		}
+
+		var userMarker = L.marker([e.latitude, e.longitude]).bindPopup('You are <b>alive</b>!');
+
+		map.addLayer(userMarker);
+		userMarkerShown = true;
 	})
 	.on('locationerror', function(e){
 		console.log("Location access denied.");
