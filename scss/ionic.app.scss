@@ -21,5 +21,9 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 $positive: #f44336;
 
 
+// Map styles
+#map { height: 100%; }
+
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
