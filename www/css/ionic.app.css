@@ -15,6 +15,9 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+.heading-info {
+  text-align: right; }
+
 #map {
   height: 100%; }
 

@@ -58,6 +58,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+  .state('tab.leaderboard', {
+      url: '/leaderboard',
+      views: {
+        'tab-leaderboard': {
+          templateUrl: 'templates/tab-leaderboard.html',
+          controller: 'LeaderboardCtrl'
+        }
+      }
+    })
+
   .state('tab.map', {
     url: '/map',
     views: {
