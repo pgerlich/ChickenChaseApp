@@ -17,6 +17,10 @@
   "cordovaPlugins": [
     "com.ionic.keyboard",
     "cordova-plugin-whitelist"
+    {
+      "locator": "https://github.com/katzer/cordova-plugin-background-mode",
+      "id": "de.appplant.cordova.plugin.background-mode"
+    }
   ],
   "cordovaPlatforms": [
     "ios"
