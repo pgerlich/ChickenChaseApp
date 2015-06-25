@@ -1,3 +1,12 @@
 <ion-view view-title="Map">
-     <div id="map"></div>
+<div style="float:right;">
+	<br><br><br>
+<p>Initial marker position (lat/lng): <strong ng-bind="markers.mainMarker.lat"></strong> / <strong ng-bind="markers.mainMarker.lng"></strong></p>
+</div>
+    <p>Actual marker position (lat/lng): <strong  ng-bind="position.lat"></strong> / <strong ng-bind="position.lng"></strong></p>
+    </p>
+
+
+     <leaflet id="map" defaults="defaults" markers="markers" center="center"></leaflet>
+
 </ion-view>
