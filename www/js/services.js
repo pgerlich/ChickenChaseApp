@@ -10,5 +10,8 @@ angular.module('starter.services', [])
         }, delay);
         return result;
     };
- });
+ }
+
+
+);
 

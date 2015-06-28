@@ -12,26 +12,36 @@ angular.module('starter.controllers', [])
 	    type: "double",
 	    min: 0,
 	    max: 1000,
-	    from: 200,
-	    to: 500,
 	    grid: true
 	});
 
 	// Saving it's instance to var
-	var slider = $("#example").data("ionRangeSlider");
+	$scope.slider = $("#example").data("ionRangeSlider");
+
+	$scope.slider.update({
+		    from: ($scope.t.totalMilliseconds * chickenSpeed)/100 - 20,
+		    to: ($scope.t.totalMilliseconds * userSpeed)/100
+		});
 
 
 
 	$scope.setPosition = function() {
 		// return ($scope.t.totalMilliseconds * userSpeed)/100;
-		slider.update({
-		    from: ($scope.t.totalMilliseconds * chickenSpeed)/100 - 20,
-		    to: ($scope.t.totalMilliseconds * userSpeed)/100
+		$scope.slider.update({
+			from: ($scope.t.totalMilliseconds * chickenSpeed)/100 - 20,
+			to: ($scope.t.totalMilliseconds * userSpeed)/100
 		});
 	};
 
+	// Run function every second
+	setInterval($scope.setPosition, 1000);
+
+
+
+
+
 	$scope.getMaxDistance = function() {
-		return 100;
+		return 1000;
 	};
 
 	$scope.getMinDistance = function() {
