@@ -34,24 +34,7 @@ angular.module('starter.controllers', [])
 	};
 
 	// Run function every second
-	setInterval($scope.setPosition, 1000);
-
-
-
-
-
-	$scope.getMaxDistance = function() {
-		return 1000;
-	};
-
-	$scope.getMinDistance = function() {
-		return 0;
-	};
-
-
-
-
-
+	setInterval($scope.setPosition, 100);
 })
 
 .controller('LiveCtrl', function($scope) {})
@@ -60,6 +43,6 @@ angular.module('starter.controllers', [])
 
 
 // Map Controller
-.controller('MapCtrl', function($scope) {
+.controller('LoginCtrl', function($scope) {
 
 });
