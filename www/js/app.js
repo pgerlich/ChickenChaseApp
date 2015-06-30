@@ -31,7 +31,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // setup an abstract state for the tabs directive
     .state('tab', {
-    url: "/tab",
+    url: "/",
     abstract: true,
     templateUrl: "templates/tabs.html"
   })
@@ -39,7 +39,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   // Each tab has its own nav history stack:
 
   .state('tab.home', {
-    url: '/home',
+    url: 'home',
     views: {
       'tab-home': {
         templateUrl: 'templates/tab-home.html',
@@ -49,7 +49,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   .state('tab.live', {
-      url: '/live',
+      url: 'live',
       views: {
         'tab-live': {
           templateUrl: 'templates/tab-live.html',
@@ -59,7 +59,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
   .state('tab.leaderboard', {
-      url: '/leaderboard',
+      url: 'leaderboard',
       views: {
         'tab-leaderboard': {
           templateUrl: 'templates/tab-leaderboard.html',
@@ -69,17 +69,19 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
   .state('tab.login', {
-    url: '/login',
-    views: {
-      'tab-login': {
-        templateUrl: 'templates/tab-login.html',
-        controller: 'LoginCtrl'
+      url: 'login',
+      views: {
+        'tab-login': {
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl'
+        }
       }
-    }
-  });
+    })
+
+    ;
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
+  // $urlRouterProvider.otherwise('/home');
 
 
 
