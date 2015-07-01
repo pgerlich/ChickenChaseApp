@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 
 .controller('HomeCtrl', function($scope, MyTimer) {
 	var userSpeed = 1;
@@ -43,6 +43,64 @@ angular.module('starter.controllers', [])
 
 
 // Map Controller
-.controller('LoginCtrl', function($scope) {
-
+.controller('LoginCtrl', function($scope, $ionicModal, $timeout, ngFB, $http) {
+	//Facebook login response
+	$scope.facebookResponse = "";
+	
+	$scope.curEmail = "";
+	$scope.curPassword = "";
+	$scope.fbToken = "";
+	$scope.fbuserid = "";
+	
+	$scope.loginLocal = function () {
+		
+	};
+	
+	//Log user in to facebook
+	$scope.fbLogin = function () {
+		ngFB.login({scope: 'email,read_stream,publish_actions'}).then(
+			function (response) {
+				if (response.status === 'connected') {
+					//Set response objects
+					$scope.facebookResponse = response;
+					$scope.facebookToken = response.authResponse.accessToken;
+					$scope.fbuserid = response.authResponse.userID;
+					
+					//Test alert
+					alert("logged in: " + response.authResponse.accessToken)
+					
+					$scope.loginWithServer();
+						
+					//reroute to logged in page
+				} else if(response.status ==='not_authorized' ){
+					//Unregistered
+					alert('new user');
+				} else {
+					alert('Facebook login failed');
+					//failed
+				}
+			});
+	};
+	
+	$scope.loginWithServer = function () {
+		//Now do login stuff
+		var URL = "TODO";
+		
+		$http.post(URL + '/users/login', buildDto())
+		.success(function(response) {
+				alert(response);
+			}, function() {
+				alert("FIXME: ADD TOASTER");
+			});		
+	}
+	
+	function buildDto() {
+		return {
+			email : $scope.curEmail,
+			pass : $scope.curPassword,
+			fbuserid : $scope.fbuserid,
+			fbtoken: $scope.fbtoken
+		};
+	}
+	
 });

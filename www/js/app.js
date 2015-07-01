@@ -5,9 +5,13 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngOpenFB'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, ngFB) {
+	//Facebook setup
+	ngFB.init({appId: '680657942078262'});
+	
+	
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -81,7 +85,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     ;
 
   // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/home');
 
 
 
