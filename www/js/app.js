@@ -52,6 +52,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   })
 
+  .state('tab.login', {
+    url: 'login',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      }
+    }
+  })
+
   .state('tab.live', {
       url: 'live',
       views: {
@@ -68,16 +78,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
         'tab-leaderboard': {
           templateUrl: 'templates/tab-leaderboard.html',
           controller: 'LeaderboardCtrl'
-        }
-      }
-    })
-
-  .state('tab.login', {
-      url: 'login',
-      views: {
-        'tab-login': {
-          templateUrl: 'templates/login.html',
-          controller: 'LoginCtrl'
         }
       }
     })
