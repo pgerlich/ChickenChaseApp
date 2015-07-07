@@ -51,6 +51,7 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 	$scope.curPassword = "";
 	$scope.fbToken = "";
 	$scope.fbuserid = "";
+	$scope.loggedIn = false;
 	
 	$scope.loginLocal = function () {
 		$scope.loginWithServer();
@@ -83,6 +84,9 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 	};
 	
 	$scope.loginWithServer = function () {
+		// For now, set boolean to true for being logged in
+		$scope.loggedIn = true;
+
 		//Now do login stuff
 		
 		//TODO: Deploy to elastic bean stalk, test login and finish login portions
@@ -92,7 +96,7 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 				alert(response);
 			}, function() {
 				alert("FIXME: ADD TOASTER");
-			});		
+			});
 	}
 	
 	function buildDto() {
