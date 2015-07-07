@@ -53,7 +53,7 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 	$scope.fbuserid = "";
 	
 	$scope.loginLocal = function () {
-		
+		$scope.loginWithServer();
 	};
 	
 	//Log user in to facebook
@@ -84,9 +84,10 @@ angular.module('starter.controllers', ['starter.services', 'ngOpenFB'])
 	
 	$scope.loginWithServer = function () {
 		//Now do login stuff
-		var URL = "TODO";
 		
-		$http.post(URL + '/users/login', buildDto())
+		//TODO: Deploy to elastic bean stalk, test login and finish login portions
+		
+		$http.post('http://localhost:3000/users/login', buildDto())
 		.success(function(response) {
 				alert(response);
 			}, function() {
